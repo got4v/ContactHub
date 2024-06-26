@@ -22,7 +22,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "contact_manager.apps.ContactManagerConfig",
+    "contact_manager",
 ]
 
 MIDDLEWARE = [
