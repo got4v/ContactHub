@@ -1,48 +1,47 @@
 [
-    {
-      "first_name": "John",
-      "last_name": "Doe",
-      "phone": "+1 (555) 123-4567",
-      "email": "john.doe@example.com",
-      "address": "123 Main St, Apt 4B",
-      "city": "New York",
-      "state": "NY"
-    },
-    {
-      "first_name": "Jane",
-      "last_name": "Smith",
-      "phone": "+1 (555) 987-6543",
-      "email": "jane.smith@example.com",
-      "address": "456 Elm St",
-      "city": "Los Angeles",
-      "state": "CA"
-    },
-    {
-      "first_name": "Alice",
-      "last_name": "Johnson",
-      "phone": "+1 (555) 246-8135",
-      "email": "alice.johnson@example.com",
-      "address": "789 Oak Ave",
-      "city": "Chicago",
-      "state": "IL"
-    },
-    {
-      "first_name": "Bob",
-      "last_name": "Brown",
-      "phone": "+1 (555) 369-2580",
-      "email": "bob.brown@example.com",
-      "address": "101 Pine Rd",
-      "city": "Houston",
-      "state": "TX"
-    },
-    {
-      "first_name": "Emily",
-      "last_name": "Davis",
-      "phone": "+1 (555) 147-2589",
-      "email": "emily.davis@example.com",
-      "address": "202 Maple Ln",
-      "city": "Phoenix",
-      "state": "AZ"
-    }
-  ]
-  
+  {
+    "first_name": "Peter",
+    "last_name": "Parker",
+    "phone": "+1 (555) 112-2334",
+    "email": "peter.parker@example.com",
+    "address": "20 Web Swing Ln",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "first_name": "Clark",
+    "last_name": "KantBelieveItsNotButter",
+    "phone": "+1 (555) 223-3445",
+    "email": "clark.kant@example.com",
+    "address": "1 Krypton Way",
+    "city": "Metropolis",
+    "state": "MP"
+  },
+  {
+    "first_name": "Wade",
+    "last_name": "Wilson",
+    "phone": "+1 (555) 334-4556",
+    "email": "wade.wilson@example.com",
+    "address": "666 Chimichanga Blvd",
+    "city": "Somewhere Crazy",
+    "state": "SC"
+  },
+  {
+    "first_name": "Tony",
+    "last_name": "Snark",
+    "phone": "+1 (555) 445-5667",
+    "email": "tony.snark@example.com",
+    "address": "108 Stark Tower",
+    "city": "New York",
+    "state": "NY"
+  },
+  {
+    "first_name": "Bruce",
+    "last_name": "WaneTheBat",
+    "phone": "+1 (555) 556-6778",
+    "email": "bruce.wane@example.com",
+    "address": "9 Gotham Ln",
+    "city": "Gotham",
+    "state": "GT"
+  }
+]
