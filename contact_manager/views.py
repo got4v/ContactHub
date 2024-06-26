@@ -3,6 +3,7 @@ from django.contrib.auth.decorators import login_required
 from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
+from django.conf import settings
 import requests
 import json
 
@@ -12,7 +13,7 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('login')
 
 def display_contact_details(request, contact_id):
-    api_url = f"/api/contacts/{contact_id}"    
+    api_url = f"{settings.API_BASE_URL}/api/contacts/{contact_id}"    
     response = requests.get(api_url)
 
     if response.status_code == 200:
@@ -30,7 +31,7 @@ def display_contact_details(request, contact_id):
 
 @login_required
 def display_contact_list(request):
-    api_url = "/api/contacts/"
+    api_url = f"{settings.API_BASE_URL}/api/contacts/"
     
     response = requests.get(api_url)
     
@@ -44,7 +45,7 @@ def display_contact_list(request):
 
 @login_required
 def contact_delete(request, contact_id):
-    api_url = f"/api/contacts/{contact_id}"
+    api_url = f"{settings.API_BASE_URL}/api/contacts/{contact_id}"
     
     if request.method == 'POST' and request.POST.get('_method') == 'DELETE':
         response = requests.delete(api_url)
