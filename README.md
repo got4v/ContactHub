@@ -2,26 +2,23 @@
 
 ## Overview
 
-This is a Contact Manager application built using Django and Ninja API. The application allows users to manage their contacts, including adding, updating, viewing, and deleting contact information.
+Acces to manage contacts:
+
+Username: admin
+Password: admin
+
+
+The Contact Manager is a Django application that allows users to register, view a list of contacts, view details of a specific contact, and delete contacts. The application uses Django for the backend and HTML templates for the frontend.
 
 ## Features
 
-- Add new contacts
-- Update existing contacts
-- View contact details
-- Delete contacts
+- User registration and authentication.
+- Display a list of contacts.
+- View details of a specific contact.
+- Delete a contact.
 
 ## Requirements
 
-- Python 3.8+
-- Django 3.2+
-- Django Ninja 0.12.0+
-- SQLite (or any other preferred database)
-
-## Installation
-
-1. **Clone the repository:**
-
-   ```bash
-   git clone https://github.com/yourusername/contact-manager.git
-   cd contact-manager
+- Python 3.9 or higher
+- Django 5.0.6
+- PostgreSQL (if not using SQLite for development)
