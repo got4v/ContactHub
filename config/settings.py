@@ -5,15 +5,14 @@ from django.core.wsgi import get_wsgi_application
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = os.environ.get("SECRET_KEY")
+SECRET_KEY = 'asdjaskljdflahflakdfjhlkasjdl;kas'
+
 
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
-ALLOWED_HOSTS = ['contacthub-jw1j.onrender.com', 'localhost']
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
+ALLOWED_HOSTS = ['contacthub-jw1j.onrender.com', 'localhost', '127.0.0.1']
 
-application = get_wsgi_application()
 
 INSTALLED_APPS = [
     "django.contrib.admin",
@@ -56,9 +55,11 @@ TEMPLATES = [
 WSGI_APPLICATION = 'config.wsgi.application'
 
 # Database
+database_url = os.environ.get("DATABASE_URL")
 DATABASES = {
-    'default': dj_database_url.parse(os.environ.get("DATABASE_URL"))
+    'default': dj_database_url.parse(database_url)
 }
+
 
 # Password validation
 AUTH_PASSWORD_VALIDATORS = [
