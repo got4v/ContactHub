@@ -4,7 +4,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.conf import settings
-from django.middleware.csrf import get_token  # Import the CSRF token function
+from django.middleware.csrf import get_token
 import requests
 import json
 
@@ -15,7 +15,7 @@ class RegisterView(CreateView):
 
 def display_contact_details(request, contact_id):
     api_url = f"{settings.API_BASE_URL}/api/contacts/{contact_id}"    
-    response = requests.get(api_url, headers={'X-CSRFToken': get_token(request)})  # Include CSRF token in headers
+    response = requests.get(api_url, headers={'X-CSRFToken': get_token(request)})
 
     if response.status_code == 200:
         try:
@@ -30,10 +30,9 @@ def display_contact_details(request, contact_id):
         error_message = f'Error fetching contact details: {response.status_code}'
         return render(request, 'contact_manager/error.html', {'error_message': error_message})
 
-@login_required
 def display_contact_list(request):
     api_url = f"{settings.API_BASE_URL}/api/contacts/"
-    headers = {'X-CSRFToken': get_token(request)}  # Include CSRF token in headers
+    headers = {'X-CSRFToken': get_token(request)}
     
     response = requests.get(api_url, headers=headers)
     
@@ -43,12 +42,14 @@ def display_contact_list(request):
         return render(request, 'contact_manager/contact_list.html', {'contacts': contacts})
     else:
         error_message = f'Error fetching contact list: {response.status_code}'
+        print(error_message) 
         return render(request, 'contact_manager/error.html', {'error_message': error_message})
+
 
 @login_required
 def contact_delete(request, contact_id):
     api_url = f"{settings.API_BASE_URL}/api/contacts/{contact_id}"
-    headers = {'X-CSRFToken': get_token(request)}  # Include CSRF token in headers
+    headers = {'X-CSRFToken': get_token(request)}
     
     if request.method == 'POST' and request.POST.get('_method') == 'DELETE':
         response = requests.delete(api_url, headers=headers)

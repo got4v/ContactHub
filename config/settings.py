@@ -7,7 +7,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 SECRET_KEY = 'ca32a4d6563e8213012a2bc84ddc353e'
 
-API_BASE_URL = os.environ.get("API_BASE_URL", "https://contacthub-jw1j.onrender.com")
+API_BASE_URL = 'https://contacthub-jw1j.onrender.com'
 
 DEBUG = os.environ.get("DEBUG", "False").lower() == "true"
 
