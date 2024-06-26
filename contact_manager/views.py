@@ -12,7 +12,7 @@ class RegisterView(CreateView):
     success_url = reverse_lazy('login')
 
 def display_contact_details(request, contact_id):
-    api_url = f"http://localhost:8000/api/contacts/{contact_id}"    
+    api_url = f"/api/contacts/{contact_id}"    
     response = requests.get(api_url)
 
     if response.status_code == 200:
@@ -30,7 +30,7 @@ def display_contact_details(request, contact_id):
 
 @login_required
 def display_contact_list(request):
-    api_url = "http://localhost:8000/api/contacts/"
+    api_url = "/api/contacts/"
     
     response = requests.get(api_url)
     
@@ -44,7 +44,7 @@ def display_contact_list(request):
 
 @login_required
 def contact_delete(request, contact_id):
-    api_url = f"http://localhost:8000/api/contacts/{contact_id}"
+    api_url = f"/api/contacts/{contact_id}"
     
     if request.method == 'POST' and request.POST.get('_method') == 'DELETE':
         response = requests.delete(api_url)
