@@ -4,6 +4,7 @@ from django.views.generic.edit import CreateView
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.conf import settings
+from django.middleware.csrf import get_token  # Import the CSRF token function
 import requests
 import json
 
@@ -14,7 +15,7 @@ class RegisterView(CreateView):
 
 def display_contact_details(request, contact_id):
     api_url = f"{settings.API_BASE_URL}/api/contacts/{contact_id}"    
-    response = requests.get(api_url)
+    response = requests.get(api_url, headers={'X-CSRFToken': get_token(request)})  # Include CSRF token in headers
 
     if response.status_code == 200:
         try:
@@ -32,8 +33,9 @@ def display_contact_details(request, contact_id):
 @login_required
 def display_contact_list(request):
     api_url = f"{settings.API_BASE_URL}/api/contacts/"
+    headers = {'X-CSRFToken': get_token(request)}  # Include CSRF token in headers
     
-    response = requests.get(api_url)
+    response = requests.get(api_url, headers=headers)
     
     if response.status_code == 200:
         contacts = response.json()
@@ -46,16 +48,17 @@ def display_contact_list(request):
 @login_required
 def contact_delete(request, contact_id):
     api_url = f"{settings.API_BASE_URL}/api/contacts/{contact_id}"
+    headers = {'X-CSRFToken': get_token(request)}  # Include CSRF token in headers
     
     if request.method == 'POST' and request.POST.get('_method') == 'DELETE':
-        response = requests.delete(api_url)
+        response = requests.delete(api_url, headers=headers)
         if response.status_code == 204:
             return redirect('contacts')
         else:
             error_message = f'Error deleting contact: {response.status_code}'
             return render(request, 'contact_manager/error.html', {'error_message': error_message})
     else:
-        response = requests.get(api_url)
+        response = requests.get(api_url, headers=headers)
         if response.status_code == 200:
             contact = response.json()
             return render(request, 'contact_manager/contact_delete.html', {'contact': contact})
